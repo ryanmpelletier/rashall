@@ -19,15 +19,13 @@ public class ShallProcessor implements Processor {
         log.info("ShallProcessor begin processing Exchange.");
 
         BodyContentHandler handler = new BodyContentHandler();
-
         AutoDetectParser parser = new AutoDetectParser();
-
         Metadata metadata = new Metadata();
 
         try (InputStream stream = exchange.getIn().getBody(InputStream.class)) {
             parser.parse(stream, handler, metadata);
 
-            log.info("Content = {}", handler.toString());
+            String content = handler.toString();
         }
 
     }
