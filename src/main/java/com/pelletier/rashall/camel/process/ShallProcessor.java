@@ -24,7 +24,8 @@ public class ShallProcessor implements Processor {
 
         try (InputStream stream = exchange.getIn().getBody(InputStream.class)) {
             parser.parse(stream, handler, metadata);
-
+            // the following regex can probably reliably pull out the section number
+            // ([0-9]?(\.)?(([0-9]{1,}\.){1,}[0-9]{1,})?)
             String content = handler.toString();
         }
 
