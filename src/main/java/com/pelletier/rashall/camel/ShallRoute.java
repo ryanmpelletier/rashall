@@ -19,6 +19,6 @@ public class ShallRoute extends RouteBuilder {
     public void configure() {
         from("file://" + in)
                 .process(new ShallProcessor())
-                .to("file://" + out);
+                .to("file://" + out + "/?filename=requirements.csv");
     }
 }
